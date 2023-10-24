@@ -1,4 +1,4 @@
-import "tfplan" as plan
+import "tfplan-functions" as plan
 import "strings" as strings
 
 # Get all aws db_instances
