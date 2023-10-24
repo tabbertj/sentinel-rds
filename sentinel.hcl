@@ -10,7 +10,7 @@ module "tfconfig-functions" {
     source = "./common-functions/tfconfig-functions/tfconfig-functions.sentinel"
 }
 
-policy "require-storage-drs" {
+policy "check-rds-non-public" {
     source = "./aws-rds.sentinel"
     enforcement_level = "advisory"
 }
