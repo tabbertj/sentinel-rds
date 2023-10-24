@@ -10,10 +10,7 @@ publicAWSdbInstances = plan.filter_attribute_is_not_value(
                               allAWSdbInstances, "publicly_accessible", "true", true)
 
 # Main rule
-validated = length(publicAWSdbInstances["messages"]) is 0 {
-  print("All AWS RDS instances must not be publicly accessible"
-        )
-}
+validated = length(publicAWSdbInstances["messages"]) is 0 
 
 main = rule {
   validated
