@@ -12,5 +12,5 @@ module "tfconfig-functions" {
 
 policy "check-rds-non-public" {
     source = "./aws-rds.sentinel"
-    enforcement_level = "advisory"
+    enforcement_level = "hard-mandatory"
 }
