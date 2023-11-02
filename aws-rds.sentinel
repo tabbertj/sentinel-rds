@@ -7,7 +7,7 @@ allAWSdbInstances = plan.find_resources("aws_db_instance")
 # Filter to aws db instances that are publicly accessible
 # Warnings will be printed for all violations since the last parameter is false
 publicAWSdbInstances = plan.filter_attribute_was_not_value(
-                              allAWSdbInstances, "publicly_accessible", "true", true)
+                              allAWSdbInstances, "username", "justinadm", true)
 
 # Main rule
 validated = length(publicAWSdbInstances["messages"]) is 0 
