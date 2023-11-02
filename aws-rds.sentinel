@@ -1,13 +1,15 @@
 import "tfplan-functions" as plan
 import "strings" as strings
 
+allowed_values = ["true"] 
+
 # Get all aws db_instances
 allAWSdbInstances = plan.find_resources("aws_db_instance")
 
 # Filter to aws db instances that are publicly accessible
 # Warnings will be printed for all violations since the last parameter is false
-publicAWSdbInstances = plan.filter_attribute_is_not_value(
-                              allAWSdbInstances, "publicly_accessible", "true", true)
+publicAWSdbInstances = plan.filter_attribute_not_in_list(
+                              allAWSdbInstances, allowed_values, "true", true)
 
 # Main rule
 validated = length(publicAWSdbInstances["messages"]) is 0 
