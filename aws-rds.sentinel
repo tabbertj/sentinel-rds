@@ -1,5 +1,6 @@
 import "tfplan-functions" as plan
 import "strings" as strings
+import "http"
 
 # Get all aws db_instances
 allAWSdbInstances = plan.find_resources("aws_db_instance")
